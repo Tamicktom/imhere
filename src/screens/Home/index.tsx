@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <View style={styles.container}>
       <StatusBar translucent style='light' />
-      <View>
+      <View style={styles.eventInfoHolder}>
         <Text style={styles.eventName}>Nome do envento</Text>
         <Text style={styles.eventDate}>Sexta, 4 de Novembro de 2022</Text>
       </View>

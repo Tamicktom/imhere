@@ -8,10 +8,19 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 32,
-    gap: 24,
+    gap: 36,
   },
-  eventName: {},
-  eventDate: {},
+  eventInfoHolder: {
+    width: "100%",
+  },
+  eventName: {
+    color: "#fff",
+    fontSize: 24,
+    fontWeight: "bold",
+  },
+  eventDate: {
+    color: "#888",
+  },
   input: {
     height: 56,
     backgroundColor: "#1f1e25",
