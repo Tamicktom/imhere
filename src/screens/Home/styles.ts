@@ -7,8 +7,8 @@ export const styles = StyleSheet.create({
     backgroundColor: "#131016",
     alignItems: "center",
     justifyContent: "center",
-    paddingHorizontal: 32,
     gap: 36,
+    paddingTop: 48,
   },
   eventInfoHolder: {
     width: "100%",
