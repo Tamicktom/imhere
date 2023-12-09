@@ -21,6 +21,10 @@ export const styles = StyleSheet.create({
   eventDate: {
     color: "#888",
   },
+  noParticipantsText: {
+    color: "#fff",
+    fontSize: 24,
+  },
   input: {
     height: 56,
     backgroundColor: "#1f1e25",

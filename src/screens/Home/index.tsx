@@ -1,7 +1,7 @@
 //* Libraries imports
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { Text, View, TextInput, TouchableOpacity, ScrollView } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, ScrollView, FlatList } from 'react-native';
 
 //* Local imports
 import Participant from '../../components/Participant';
@@ -10,9 +10,7 @@ import { styles } from './styles';
 
 export default function Home() {
   const [participantName, setParticipantName] = useState('');
-  const [participants, setParticipants] = useState([
-    { id: randomId(), name: 'Rodrigo' },
-  ]);
+  const [participants, setParticipants] = useState([]);
 
   const handleAddNewParticipant = () => {
     if (participantName.trim() === '') {
@@ -66,32 +64,25 @@ export default function Home() {
         </View>
       </View>
 
-      <ScrollView
+      <FlatList
+        data={participants}
+        keyExtractor={(item) => item.id}
+        horizontal={false}
+        showsVerticalScrollIndicator={false}
         style={{
           width: "100%",
           paddingHorizontal: 16,
-          paddingBottom: 32
         }}
-        showsVerticalScrollIndicator={false}
-      >
-        <View style={{
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          gap: 8,
-        }}>
-          {
-            participants.map((participant) => (
-              <Participant
-                key={participant.id}
-                id={participant.id}
-                name={participant.name}
-                onRemove={handleRemoveParticipant}
-              />
-            ))
-          }
-        </View>
-      </ScrollView>
+        ItemSeparatorComponent={() => <View style={{ height: 8 }} />}
+        renderItem={({ item }) => (
+          <Participant
+            key={item.id}
+            id={item.id}
+            name={item.name}
+            onRemove={handleRemoveParticipant}
+          />
+        )}
+      />
     </View>
   );
 }

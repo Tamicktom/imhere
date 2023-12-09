@@ -30,7 +30,7 @@ export default function Participant(props: Props) {
       }),
       Animated.timing(opacity, {
         toValue: 1,
-        duration: 500,
+        duration: 350,
         useNativeDriver: false,
       }),
       Animated.spring(height, {
@@ -46,7 +46,7 @@ export default function Participant(props: Props) {
     Animated.parallel([
       Animated.timing(opacity, {
         toValue: 0,
-        duration: 250,
+        duration: 230,
         useNativeDriver: false,
       }),
       Animated.spring(bounce, {
@@ -55,7 +55,7 @@ export default function Participant(props: Props) {
       }),
       Animated.timing(height, {
         toValue: 0,
-        duration: 250,
+        duration: 239,
         useNativeDriver: false,
       })
     ]).start();
