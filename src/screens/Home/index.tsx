@@ -82,6 +82,20 @@ export default function Home() {
             onRemove={handleRemoveParticipant}
           />
         )}
+        ListEmptyComponent={() => (
+          <View style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: 200,
+          }}>
+            <Text style={{
+              fontSize: 18,
+              color: '#6b6b6b',
+              textAlign: 'center',
+            }}>Nenhum participante adicionado</Text>
+          </View>
+        )}
       />
     </View>
   );

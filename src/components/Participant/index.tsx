@@ -15,7 +15,7 @@ export default function Participant(props: Props) {
   //to make it more fun
 
   //create a new animated values
-  const bounce = useRef(new Animated.Value(0)).current;
+  const scale = useRef(new Animated.Value(0)).current;
   const opacity = useRef(new Animated.Value(0)).current;
   const height = useRef(new Animated.Value(0)).current;
 
@@ -23,14 +23,14 @@ export default function Participant(props: Props) {
   //to make it more fun
   useEffect(() => {
     Animated.parallel([
-      Animated.spring(bounce, {
+      Animated.spring(scale, {
         toValue: 1,
         useNativeDriver: false,
         bounciness: 1,
       }),
       Animated.timing(opacity, {
         toValue: 1,
-        duration: 350,
+        duration: 300,
         useNativeDriver: false,
       }),
       Animated.spring(height, {
@@ -49,7 +49,7 @@ export default function Participant(props: Props) {
         duration: 230,
         useNativeDriver: false,
       }),
-      Animated.spring(bounce, {
+      Animated.spring(scale, {
         toValue: 0,
         useNativeDriver: false,
       }),
@@ -66,11 +66,11 @@ export default function Participant(props: Props) {
 
   return (
     <Animated.View style={[styles.container, {
-      opacity: opacity,
-      height: height,
+      opacity,
+      height,
       transform: [
         {
-          scale: bounce,
+          scale,
         }
       ]
     }]}>
