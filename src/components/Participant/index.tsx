@@ -26,6 +26,7 @@ export default function Participant(props: Props) {
       Animated.spring(bounce, {
         toValue: 1,
         useNativeDriver: false,
+        bounciness: 1,
       }),
       Animated.timing(opacity, {
         toValue: 1,
@@ -35,6 +36,7 @@ export default function Participant(props: Props) {
       Animated.spring(height, {
         toValue: 56,
         useNativeDriver: false,
+        bounciness: 12,
       })
     ]).start();
   }, []);
@@ -44,7 +46,7 @@ export default function Participant(props: Props) {
     Animated.parallel([
       Animated.timing(opacity, {
         toValue: 0,
-        duration: 500,
+        duration: 250,
         useNativeDriver: false,
       }),
       Animated.spring(bounce, {
@@ -59,7 +61,7 @@ export default function Participant(props: Props) {
     ]).start();
 
     //after the animation is done, call the onRemove function
-    setTimeout(() => props.onRemove(props.id), 500);
+    setTimeout(() => props.onRemove(props.id), 240);
   }
 
   return (
