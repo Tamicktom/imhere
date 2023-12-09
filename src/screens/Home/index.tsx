@@ -1,7 +1,7 @@
 //* Libraries imports
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 
 //* Local imports
 import Participant from '../../components/Participant';
@@ -24,12 +24,12 @@ export default function Home() {
       name: participantName,
     }
 
-    setParticipants([...participants, newParticipant]);
+    setParticipants((prev) => [...prev, newParticipant]);
     setParticipantName('');
   }
 
   const handleRemoveParticipant = (id: string) => {
-    setParticipants(participants.filter((participant) => participant.id !== id));
+    setParticipants((prev) => prev.filter((participant) => participant.id !== id));
   }
 
   return (
@@ -66,10 +66,14 @@ export default function Home() {
         </View>
       </View>
 
-      <ScrollView style={{
-        width: "100%",
-        paddingHorizontal: 16,
-      }}>
+      <ScrollView
+        style={{
+          width: "100%",
+          paddingHorizontal: 16,
+          paddingBottom: 32
+        }}
+        showsVerticalScrollIndicator={false}
+      >
         <View style={{
           width: "100%",
           display: "flex",
